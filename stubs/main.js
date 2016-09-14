@@ -2069,6 +2069,7 @@ Sandbox.define('/core/v2/users/','GET', function(req, res) {
     
     // Set the status code of the response.
     res.status(200);
+    
     if(req.query.userid == "4315536" || req.query.dealercode == "4315536")
     {
         res.json({				
@@ -2113,6 +2114,49 @@ Sandbox.define('/core/v2/users/','GET', function(req, res) {
 }				
 );
     }
+    else if(req.query.userid == "1610027" || req.query.dealercode == "1610027")
+    {
+        res.json({				
+"users": {				
+	"user": [			
+	{			
+	"dealerCode": "1610027",			
+	"masterDealerCode": "1610027",			
+	"dealerName": "I Dealer",			
+	"dealerGroupNames": [			
+		"OES_RPS_BASIC"		
+	],			
+	"brand": "UVM",			
+	"rsaTokenCount": 3,			
+	"creditChannelCodes": [			
+		"FICO"		
+	],			
+	"stores": {			
+		"store": [		
+		{		
+			"businessPhones": [	
+			{	
+				"phoneType": "BUSINESS",
+				"phoneNumber": "Required Field"
+			}	
+			]	
+		}		
+		]		
+	},			
+	"provisionedDate": "2014-04-24",			
+	"enabledForTAM": "N",			
+	"manager": {			
+		"userId": "XELSYSADM"		
+	},			
+	"brightPointDealerId": "0560575",			
+	"dealerStatus": "A",			
+	"firstName": "Required Field",			
+	"userId": "MIDTOSYNY16"			
+	}			
+	]			
+}				
+});
+    }
     else
     {
         res.json({
@@ -2148,15 +2192,36 @@ Sandbox.define('/core/v2/customers/{customerid}/creditprofile', 'PUT', function(
     res.type('application/json');
     
     // Set the status code of the response.
-    res.status(204);
+    
     
     var CID = req.params.customerid
     
-    res.json(
+    
+    if(CID=="1234")
+    {
+        res.status(404);
+        res.json({
+            "errors":{
+                "error":[
+                    {
+                        "code": "1",
+                        "userMessage": "2",
+                        "systemMessage": "3" 
+                    }]
+                }
+        });
+    }
+    else{
+        res.status(204);
+        res.json(
             {
                 "status": "ok"
             }
         );
+    }
+    
+    
+        
 })
 
 Sandbox.define('/core/v2/customers//creditprofile','PUT', function(req, res){
