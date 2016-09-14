@@ -1620,10 +1620,209 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
                     }]
                 }
             });
-        } else if (req.body.customer.organization.taxId == "4") {
-            //
+        } else if (req.body.customer.organization.taxId == "112233004") {
+            //PG 1 NEG LLC
+            //PGNEGONE PGNEGONE
             //Personal Guarantor Single Neg
-            res.json();
+            res.json({
+  "customers": {
+    "customer": [
+      {
+        "customerType": "Business",
+        "organization": {
+          "name": "PG 1 NEG LLC",
+          "taxId": "112233004"
+        },
+        "commonCustomerId": "1-4X0BN",
+        "status": "N",
+        "notes": [
+          {
+            "noteType": "NEWCUSTOMER",
+            "content": "TRUE"
+          }
+        ],
+        "marketCode": "SEW",
+        "accounts": {
+          "account": [
+            {
+              "contactAddress": {
+                "addressLine1": "1 Test Dr",
+                "cityName": "Bellevue",
+                "stateCode": "WA",
+                "zip": "98006"
+              }
+            },
+            {
+              "accountNumber": "100120011",
+              "status": "N",
+              "statusChangeDate": "01/01/2016",
+              "accountType": "B",
+              "accountsubType": "L",
+              "businessName": "PG 1 NEG LLC",
+              "contactAddress": {
+                "addressLine1": "1 Test Dr",
+                "addressLine2": "Bellevue",
+                "cityName": "Bellevue",
+                "stateCode": "WA",
+                "zip": "98006"
+              },
+              "serviceStartDate": "01/01/2001",
+              "notes": [
+                {
+                  "noteType": "CUSTOMERSTATUS",
+                  "content": "FCMF"
+                }
+              ]
+            }
+          ]
+        },
+        "negativeAccount": [
+          {
+            "accountNumber": "100120011",
+            "status": "N",
+            "statusChangeDate": "13/08/2002",
+            "accountType": "I",
+            "accountSubType": "R",
+            "contactFirstName": "JOHN",
+            "contactFamilyName": "WHEAT",
+            "contactAddress": {
+              "addressLine1": "3307 ADELAIDE WY",
+              "cityName": "BELMONT",
+              "stateCode": "CA",
+              "zip": "94002"
+            },
+            "linesCount": 2,
+            "availableBalance": 100,
+            "serviceStartDate": "26/09/2001",
+            "billCycle": "5",
+            "earlyTerminationFee": 0,
+            "phoneNumbers": [
+              {
+                "phoneNumber": "4048034662",
+                "phoneType": "HOME"
+              }
+            ],
+            "newAccountIndicator": true,
+            "submarketCode": "SAT",
+            "submarketName": "SAN ANTONIO TX",
+            "statusReasonCode": "FACM",
+            "paymentLastDate": "03/12/2003",
+            "paymentLastAmount": 100,
+            "birthDate": "07/04/1955",
+            "identificationNumber": "10737449",
+            "identificationState": "TX",
+            "taxId": "0",
+            "writeOffDate": "07/10/2002",
+            "creditClass": "B",
+            "statusActivityCode": "CAN",
+            "statusActivityReason": "FACM",
+            "negativeFiles": [
+              {
+                "negativeFileId": "10000001",
+                "marketCode": "VST",
+                "agencyCode": "VST",
+                "assignedDate": "13/06/2014",
+                "activityDate": "13/06/2014",
+                "activityAmount": "100",
+                "activityType": "ASSN"
+              }
+            ],
+            "ssn": "666713265"
+          }
+        ]
+      },
+      {
+        "customerType": "Personal Guarantor",
+        "firstName": "PGNEGONE",
+        "familyName": "PGNEGONE",
+        "dateOfBirth": "21/09/1978",
+        "commonCustomerId": "1-4X0JQ",
+        "status": "N",
+        "accounts": {
+          "account": [
+            {
+              "accountNumber": "100120011",
+              "status": "N",
+              "statusChangeDate": "01/01/2016",
+              "accountType": "B",
+              "accountsubType": "L",
+              "contactAddress": {
+                "addressLine1": "1 Test Dr",
+                "addressLine2": "Bellevue",
+                "cityName": "Bellevue",
+                "stateCode": "WA",
+                "zip": "98006"
+              },
+              "serviceStartDate": "01/01/2001",
+              "notes": [
+                {
+                  "noteType": "CUSTOMERSTATUS",
+                  "content": "FCMF"
+                }
+              ]
+            }
+          ]
+        },
+        "negativeAccount": [
+          {
+            "accountNumber": "100120011",
+            "status": "N",
+            "statusChangeDate": "13/08/2002",
+            "accountType": "I",
+            "accountSubType": "R",
+            "contactFirstName": "JOHN",
+            "contactFamilyName": "WHEAT",
+            "contactAddress": {
+              "addressLine1": "3307 ADELAIDE WY",
+              "cityName": "BELMONT",
+              "stateCode": "CA",
+              "zip": "94002"
+            },
+            "linesCount": 2,
+            "availableBalance": 100,
+            "serviceStartDate": "26/09/2001",
+            "billCycle": "5",
+            "phoneNumbers": [
+              {
+                "phoneNumber": "4048034662",
+                "phoneType": "HOME"
+              }
+            ],
+            "newAccountIndicator": true,
+            "submarketCode": "SAT",
+            "submarketName": "SAN ANTONIO TX",
+            "statusReasonCode": "FACM",
+            "paymentLastDate": "03/12/2003",
+            "paymentLastAmount": 100,
+            "birthDate": "07/04/1955",
+            "identificationNumber": "10737449",
+            "identificationState": "TX",
+            "taxId": "0",
+            "writeOffDate": "07/10/2002",
+            "creditClass": "B",
+            "statusActivityCode": "CAN",
+            "statusActivityReason": "FACM",
+            "equipmentCreditLimit": 0,
+            "negativeFiles": [
+              {
+                "negativeFileId": "10000001",
+                "marketCode": "VST",
+                "agencyCode": "VST",
+                "assignedDate": "13/06/2014",
+                "activityDate": "13/06/2014",
+                "activityAmount": "100",
+                "activityType": "ASSN"
+              }
+            ],
+            "personalGuarantor": {},
+            "ssn": "666713265"
+          }
+        ],
+        "ssn": "101199995"
+      }
+    ]
+  }
+});
         } else if (req.body.customer.organization.taxId == "112233121") {
             //PG Multiple CMF-1 LLC
             //PGCMFMULTIPLE PGCMFMULTIPLE
@@ -2009,10 +2208,280 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
                     }]
                 }
             });
-        } else if (req.body.customer.organization.taxId == "8") {
-            //
+        } else if (req.body.customer.organization.taxId == "112233005") {
+            //PG Multiple NEG-1 LLC
+            //PGNEGMULTIPLE PGNEGMULTIPLE
             //Personal Guarantor MULTIPLE Neg
-            res.json();
+            res.json({
+  "customers": {
+    "customer": [
+      {
+        "customerType": "Business",
+        "organization": {
+          "name": "PG Multiple NEG-1 LLC",
+          "taxId": "112233005"
+        },
+        "commonCustomerId": "1-4X0BN",
+        "status": "N",
+        "notes": [
+          {
+            "noteType": "NEWCUSTOMER",
+            "content": "TRUE"
+          }
+        ],
+        "marketCode": "SEW",
+        "accounts": {
+          "account": [
+            {
+              "contactAddress": {
+                "addressLine1": "2 Test Dr",
+                "cityName": "Bellevue",
+                "stateCode": "WA",
+                "zip": "98006"
+              }
+            },
+            {
+              "accountNumber": "100120012",
+              "status": "N",
+              "statusChangeDate": "01/01/2016",
+              "accountType": "B",
+              "accountsubType": "L",
+              "businessName": "PG Multiple NEG-1 LLC",
+              "contactAddress": {
+                "addressLine1": "2 Test Dr",
+                "cityName": "Bellevue",
+                "stateCode": "WA",
+                "zip": "98006"
+              },
+              "serviceStartDate": "01/01/2006",
+              "notes": [
+                {
+                  "noteType": "CUSTOMERSTATUS",
+                  "content": "FCMF"
+                }
+              ]
+            }
+          ]
+        },
+        "negativeAccount": [
+          {
+            "accountNumber": "100120012",
+            "status": "N",
+            "statusChangeDate": "13/08/2002",
+            "accountType": "I",
+            "accountSubType": "R",
+            "contactFirstName": "JOHN",
+            "contactFamilyName": "WHEAT",
+            "contactAddress": {
+              "addressLine1": "3307 ADELAIDE WY",
+              "cityName": "BELMONT",
+              "stateCode": "CA",
+              "zip": "94002"
+            },
+            "linesCount": 2,
+            "availableBalance": 100,
+            "serviceStartDate": "26/09/2001",
+            "billCycle": "5",
+            "earlyTerminationFee": 0,
+            "phoneNumbers": [
+              {
+                "phoneNumber": "4048034662",
+                "phoneType": "HOME"
+              }
+            ],
+            "newAccountIndicator": true,
+            "submarketCode": "SAT",
+            "submarketName": "SAN ANTONIO TX",
+            "statusReasonCode": "FACM",
+            "paymentLastDate": "03/12/2003",
+            "paymentLastAmount": 100,
+            "birthDate": "07/04/1955",
+            "identificationNumber": "10737449",
+            "identificationState": "TX",
+            "taxId": "0",
+            "writeOffDate": "07/10/2002",
+            "creditClass": "B",
+            "statusActivityCode": "CAN",
+            "statusActivityReason": "FACM",
+            "negativeFiles": [
+              {
+                "negativeFileId": "10000002",
+                "marketCode": "VST",
+                "agencyCode": "VST",
+                "assignedDate": "13/06/2014",
+                "activityDate": "13/06/2014",
+                "activityAmount": "100",
+                "activityType": "ASSN"
+              }
+            ],
+            "ssn": "666713265"
+          }
+        ]
+      },
+      {
+        "customerType": "Personal Guarantor",
+        "firstName": "PGNEGMULTIPLE",
+        "familyName": "PGNEGMULTIPLE",
+        "dateOfBirth": "21/09/1978",
+        "commonCustomerId": "1-4X0LY",
+        "status": "N",
+        "accounts": {
+          "account": [
+            {
+              "accountNumber": "100120012",
+              "status": "N",
+              "statusChangeDate": "01/01/2016",
+              "accountType": "B",
+              "accountsubType": "L",
+              "contactAddress": {
+                "addressLine1": "2 Test Dr",
+                "cityName": "Bellevue",
+                "stateCode": "WA",
+                "zip": "98006"
+              },
+              "serviceStartDate": "01/01/2006",
+              "notes": [
+                {
+                  "noteType": "CUSTOMERSTATUS",
+                  "content": "FCMF"
+                }
+              ]
+            },
+            {
+              "accountNumber": "100120013",
+              "status": "N",
+              "statusChangeDate": "01/01/2009",
+              "accountType": "B",
+              "accountsubType": "L",
+              "contactAddress": {
+                "addressLine1": "2-1 Test Dr",
+                "cityName": "Bellevue",
+                "stateCode": "WA",
+                "zip": "98006"
+              },
+              "serviceStartDate": "01/01/2007",
+              "notes": [
+                {
+                  "noteType": "CUSTOMERSTATUS",
+                  "content": "FCMF"
+                }
+              ]
+            }
+          ]
+        },
+        "negativeAccount": [
+          {
+            "accountNumber": "100120012",
+            "status": "N",
+            "statusChangeDate": "13/08/2002",
+            "accountType": "I",
+            "accountSubType": "R",
+            "contactFirstName": "JOHN",
+            "contactFamilyName": "WHEAT",
+            "contactAddress": {
+              "addressLine1": "3307 ADELAIDE WY",
+              "cityName": "BELMONT",
+              "stateCode": "CA",
+              "zip": "94002"
+            },
+            "linesCount": 2,
+            "availableBalance": 100,
+            "serviceStartDate": "26/09/2001",
+            "billCycle": "5",
+            "phoneNumbers": [
+              {
+                "phoneNumber": "4048034662",
+                "phoneType": "HOME"
+              }
+            ],
+            "newAccountIndicator": true,
+            "submarketCode": "SAT",
+            "submarketName": "SAN ANTONIO TX",
+            "statusReasonCode": "FACM",
+            "paymentLastDate": "03/12/2003",
+            "paymentLastAmount": 100,
+            "birthDate": "07/04/1955",
+            "identificationNumber": "10737449",
+            "identificationState": "TX",
+            "taxId": "0",
+            "writeOffDate": "07/10/2002",
+            "creditClass": "B",
+            "statusActivityCode": "CAN",
+            "statusActivityReason": "FACM",
+            "equipmentCreditLimit": 0,
+            "negativeFiles": [
+              {
+                "negativeFileId": "10000002",
+                "marketCode": "VST",
+                "agencyCode": "VST",
+                "assignedDate": "13/06/2014",
+                "activityDate": "13/06/2014",
+                "activityAmount": "100",
+                "activityType": "ASSN"
+              }
+            ],
+            "personalGuarantor": {},
+            "ssn": "666713265"
+          },
+          {
+            "accountNumber": "100120013",
+            "status": "N",
+            "statusChangeDate": "13/08/2002",
+            "accountType": "I",
+            "accountSubType": "R",
+            "contactFirstName": "JOHN",
+            "contactFamilyName": "WHEAT",
+            "contactAddress": {
+              "addressLine1": "3307 ADELAIDE WY",
+              "cityName": "BELMONT",
+              "stateCode": "CA",
+              "zip": "94002"
+            },
+            "linesCount": 2,
+            "availableBalance": 100,
+            "serviceStartDate": "26/09/2001",
+            "billCycle": "5",
+            "phoneNumbers": [
+              {
+                "phoneNumber": "4048034662",
+                "phoneType": "HOME"
+              }
+            ],
+            "newAccountIndicator": true,
+            "submarketCode": "SAT",
+            "submarketName": "SAN ANTONIO TX",
+            "statusReasonCode": "FACM",
+            "paymentLastDate": "03/12/2003",
+            "paymentLastAmount": 100,
+            "birthDate": "07/04/1955",
+            "identificationNumber": "10737449",
+            "identificationState": "TX",
+            "taxId": "0",
+            "writeOffDate": "07/10/2002",
+            "creditClass": "B",
+            "statusActivityCode": "CAN",
+            "statusActivityReason": "FACM",
+            "equipmentCreditLimit": 0,
+            "negativeFiles": [
+              {
+                "negativeFileId": "10000003",
+                "marketCode": "VST",
+                "agencyCode": "VST",
+                "assignedDate": "13/06/2014",
+                "activityDate": "13/06/2014",
+                "activityAmount": "100",
+                "activityType": "ASSN"
+              }
+            ],
+            "personalGuarantor": {},
+            "ssn": "666713265"
+          }
+        ],
+        "ssn": "101199996"
+      }
+    ]
+  }
+});
         } else {
             var pg = {
                 "customers": {
