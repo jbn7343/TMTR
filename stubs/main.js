@@ -2527,7 +2527,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
 })
 
 
-Sandbox.define('/core/v2/users/','GET', function(req, res) {
+Sandbox.define('/core/v2/users/','GET', function(req, res){
     // Check the request, make sure it is a compatible type
     if (!req.is('application/json')) {
         return res.send(400, 'Invalid content type, expected application/json');
@@ -2539,101 +2539,82 @@ Sandbox.define('/core/v2/users/','GET', function(req, res) {
     // Set the status code of the response.
     res.status(200);
     
-    if(req.query.userid == "4315536" || req.query.dealercode == "4315536")
-    {
-        res.json({				
-"users": {				
-	"user": [			
-	{			
-	"dealerCode": "4315536",			
-	"masterDealerCode": "4315536",			
-	"dealerName": "TEST",			
-	"dealerGroupNames": [			
-		"OES_RPS_BASIC"		
-	],			
-	"brand": "UVM",			
-	"rsaTokenCount": 3,			
-	"creditChannelCodes": [			
-		"FICO"		
-	],			
-	"stores": {			
-		"store": [		
-		{		
-			"businessPhones": [	
-			{	
-				"phoneType": "BUSINESS",
-				"phoneNumber": "Required Field"
-			}	
-			]	
-		}		
-		]		
-	},			
-	"provisionedDate": "2014-04-24",			
-	"enabledForTAM": "N",			
-	"manager": {			
-		"userId": "XELSYSADM"		
-	},			
-	"brightPointDealerId": "0560575",			
-	"dealerStatus": "A",			
-	"firstName": "Required Field",			
-	"userId": "MIDTOSYNY16"			
-	}			
-	]			
-}				
-}				
-);
-    }
-    else if(req.query.userid == "1610027" || req.query.dealercode == "1610027")
-    {
-        res.json({				
-"users": {				
-	"user": [			
-	{			
-	"dealerCode": "1610027",			
-	"masterDealerCode": "1610027",			
-	"dealerName": "I Dealer",			
-	"dealerGroupNames": [			
-		"OES_RPS_BASIC"		
-	],			
-	"brand": "UVM",			
-	"rsaTokenCount": 3,			
-	"creditChannelCodes": [			
-		"FICO"		
-	],			
-	"stores": {			
-		"store": [		
-		{		
-			"businessPhones": [	
-			{	
-				"phoneType": "BUSINESS",
-				"phoneNumber": "Required Field"
-			}	
-			]	
-		}		
-		]		
-	},			
-	"provisionedDate": "2014-04-24",			
-	"enabledForTAM": "N",			
-	"manager": {			
-		"userId": "XELSYSADM"		
-	},			
-	"brightPointDealerId": "0560575",			
-	"dealerStatus": "A",			
-	"firstName": "Required Field",			
-	"userId": "MIDTOSYNY16"			
-	}			
-	]			
-}				
-});
-    }
-    else
-    {
+    if (req.query.userid == "4315536" || req.query.dealercode == "4315536") {
         res.json({
-        "error": "Test dealercode not found, use 4315536"
-    }); 
+            "users": {
+                "user": [{
+                    "dealerCode": "4315536",
+                    "masterDealerCode": "4315536",
+                    "dealerName": "TEST",
+                    "dealerGroupNames": [
+                        "OES_RPS_BASIC"
+                    ],
+                    "brand": "UVM",
+                    "rsaTokenCount": 3,
+                    "creditChannelCodes": [
+                        "FICO"
+                    ],
+                    "stores": {
+                        "store": [{
+                            "businessPhones": [{
+                                "phoneType": "BUSINESS",
+                                "phoneNumber": "Required Field"
+                            }]
+                        }]
+                    },
+                    "provisionedDate": "2014-04-24",
+                    "enabledForTAM": "N",
+                    "manager": {
+                        "userId": "XELSYSADM"
+                    },
+                    "brightPointDealerId": "0560575",
+                    "dealerStatus": "A",
+                    "firstName": "Required Field",
+                    "userId": "MIDTOSYNY16"
+                }]
+            }
+        });
+    } else if (req.query.userid == "1610027" || req.query.dealercode == "1610027") {
+        res.json({
+            "users": {
+                "user": [{
+                    "dealerCode": "1610027",
+                    "masterDealerCode": "1610027",
+                    "dealerName": "QA Test Dealer",
+                    "dealerGroupNames": [
+                        "OES_RPS_BASIC"
+                    ],
+                    "brand": "UVM",
+                    "rsaTokenCount": 3,
+                    "creditChannelCodes": [
+                        "FICO"
+                    ],
+                    "stores": {
+                        "store": [{
+                            "businessPhones": [{
+                                "phoneType": "BUSINESS",
+                                "phoneNumber": "Required Field"
+                            }]
+                        }]
+                    },
+                    "provisionedDate": "2014-04-24",
+                    "enabledForTAM": "N",
+                    "manager": {
+                        "userId": "XELSYSADM"
+                    },
+                    "brightPointDealerId": "0560575",
+                    "dealerStatus": "A",
+                    "firstName": "Required Field",
+                    "userId": "MIDTOSYNY16"
+                }]
+            }
+        });
+    } else {
+        res.json({
+            "error": "Test dealercode not found, use 4315536"
+        });
     }
     // Send the response body.
-    
 })
 
 
