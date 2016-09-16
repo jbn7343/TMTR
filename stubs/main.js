@@ -2552,7 +2552,7 @@ Sandbox.define('/core/v2/users/','GET', function(req, res){
                     "brand": "UVM",
                     "rsaTokenCount": 3,
                     "creditChannelCodes": [
-                        "FICO"
+                        "330"
                     ],
                     "stores": {
                         "store": [{
