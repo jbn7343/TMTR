@@ -69,6 +69,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
    }    
    else
    {
+       dynamicAssign.dynamicAssign(IDKey, req);
        res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
    }
    /*
