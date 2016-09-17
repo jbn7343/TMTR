@@ -1,0 +1,28 @@
+{
+    "customers": {
+        "customer": [{
+            "customerType": "individual",
+            "firstName": "{{data.reqBody.customer.firstName}}",
+            "familyName": "{{data.reqBody.customer.familyname}}",
+            "dateOfBirth": "{{data.reqBody.customer.dateOfBirth}}",
+            "phoneNumbers": [{
+                "phoneNumber": "{{data.reqBody.customer.phoneNumbers[0].phoneNumber}}",
+                "phoneType": "{{data.reqBody.customer.phoneNumbers[0].phoneType}}"
+            }],
+            "commonCustomerId": "{{data.custGeneratedCCID}}",
+            "status": "N",
+            "accounts": {
+                "account": [{
+                    "contactAddress": {
+                        "addressLine1": "{{data.reqBody.customer.addresses[0].addressLine1}}",
+                        "addressLine2": "{{data.reqBody.customer.addresses[0].addressLine2}}",
+                        "cityName": "{{data.reqBody.customer.addresses[0].cityName}}",
+                        "stateCode": "{{data.reqBody.customer.addresses[0].stateCode}}",
+                        "zip": "{{data.reqBody.customer.addresses[0].zip}}"
+                    }
+                }]
+            },
+            "ssn": "{{data.reqBody.customer.ssn}}"
+        }]
+    }
+}
