@@ -55,28 +55,28 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     //see if we already have an entry
     var application = applicationMap[IDKey]
     
+    //if we don't have an existing application make the determination with what to respond
     if (!application) { 
-    return res.json(404, { error: { message: 'User doesnt exist' } }) 
+        //Gnerate a stateful store of the created CCID and (currently) keep a copy of the req 
+        applicationMap[IDKey] = { "custGeneratedCCID": makeid(),
+                                    "bizGeneratedCCID": makeid(),
+                                    "reqBody":req.body,
+                                    "predefinedResponseFound":false,
+                                    "error":false
+        };
+        
+        //Hand the request off to the if block that determines if this is a known test case and needs a specific response
+        utils.determinePredefinedResponse(IDKey, req);
+        
+        
+        if(applicationMap[IDKey].predefinedResponseFound === false)
+        {
+            //We didn't find a known test case so let's dynamically pick what the response should be
+            dynamicAssign.dynamicAssign(IDKey, req);
+        }
     }
     
-    //Gnerate a stateful store of the created CCID and (currently) keep a copy of the req 
-    applicationMap[IDKey] = { "custGeneratedCCID": makeid(),
-                                "bizGeneratedCCID": makeid(),
-                                "reqBody":req.body,
-                                "predefinedResponseFound":false,
-                                "error":false
-    };
-    
-    //Hand the request off to the if block that determines if this is a known test case and needs a specific response
-    utils.determinePredefinedResponse(IDKey, req);
-    
-    
-    if(applicationMap[IDKey].predefinedResponseFound === false)
-    {
-        //We didn't find a known test case so let's dynamically pick what the response should be
-        dynamicAssign.dynamicAssign(IDKey, req);
-    }
-    
+    //We should now have a response so lets send it if there isnt an error
     if(applicationMap[IDKey].error===false)
     {
         res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
