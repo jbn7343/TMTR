@@ -67,6 +67,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
                                     "predefinedResponseFound":false,
                                     "error":false,
                                     "responseTypes":{
+                                        "newClean":false,
                                         "cmf":false,
                                         "fcmf":false,
                                         "ofac":false,
