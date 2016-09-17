@@ -52,6 +52,13 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         IDKey = req.body.customer.organization.taxId;
     }
     
+    //see if we already have an entry
+    var application = applicationMap[IDKey]
+    
+    if (!application) { 
+    return res.json(404, { error: { message: 'User doesnt exist' } }) 
+    }
+    
     //Gnerate a stateful store of the created CCID and (currently) keep a copy of the req 
     applicationMap[IDKey] = { "custGeneratedCCID": makeid(),
                                 "bizGeneratedCCID": makeid(),
