@@ -1,0 +1,32 @@
+{
+    "customers": {
+        "customer": [{
+            "customerType": "Business",
+            "organization": {
+                "name": "{{data.reqBody.customer.organization.name}}",
+                "taxId": "{{data.reqBody.customer.organization.taxId}}"
+            },
+            "phoneNumbers": [{
+                "phoneNumber": "{{data.reqBody.customer.phoneNumbers[0].phoneNumber}}",
+                "phoneType": "{{data.reqBody.customer.phoneNumbers[0].phoneType}}"
+            }],
+            "commonCustomerId": "{{data.reqBody.generatedCCID}}",
+            "status": "N",
+            "notes": [{
+                "noteType": "NEWCUSTOMER",
+                "content": "TRUE"
+            }],
+            "accounts": {
+                "account": [{
+                    "contactAddress": {
+                        "addressLine1": "{{data.reqBody.customer.addresses[0].addressLine1}}",
+                        "addressLine2": "{{data.reqBody.customer.addresses[0].addressLine2}}",
+                        "cityName": "{{data.reqBody.customer.addresses[0].cityName}}",
+                        "stateCode": "{{data.reqBody.customer.addresses[0].stateCode}}",
+                        "zip": "{{data.reqBody.customer.addresses[0].zip}}"
+                    }
+                }]
+            }
+        }]
+    }
+}
