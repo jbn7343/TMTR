@@ -89,7 +89,7 @@ exports.dynamicAssign = function (IDKey, req)
                     }]
                 };
                 
-                customerBase.customers.customer.accounts.account.push(cmf);
+                customerBase.customers.customer.accounts.account.push({"test":"this out"});
                 
             }
             
@@ -110,7 +110,7 @@ exports.dynamicAssign = function (IDKey, req)
                     }]
                 };
                 
-                customerBase.customers.customer.accounts.account.push(fcmf);
+                customerBase.customers.customer.accounts.account.push({"test":"this out fcmf"});
                 
             }
             
