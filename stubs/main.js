@@ -62,7 +62,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
    
    if(applicationMap[IDKey].predefinedResponseFound === true)
    {
-       res.render(applicationMap[IDKey].responseTemplate);
+       res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
    }    
    else
    {
