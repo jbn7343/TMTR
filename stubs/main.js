@@ -36,11 +36,11 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     
     var IDKey; 
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
-        IDKey = req.body.customer.ssn
+        IDKey = req.body.customer.ssn;
     }
     else
     {
-        IDKey = req.body.customer.organization.taxId
+        IDKey = req.body.customer.organization.taxId;
     }
     
     applicationMap[IDKey] = { "generatedCCID": makeid(),
