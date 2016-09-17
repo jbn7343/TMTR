@@ -108,7 +108,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         if (req.body.customer.organization.taxId == "531598285") {
             //BENEDICTO
             //Business SINGLE CMF
-            res.render("business_single_cmf");
+            res.render("business_single_cmf",{"reqBody":req,"generatedCCID":"3"});
         } else if (req.body.customer.organization.taxId == "732423580") {
             //One FCMF LLC
             //Business SINGLE FCMF
