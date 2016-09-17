@@ -9,6 +9,7 @@ var applicationMap = state.application;
  
 //The predefined maps are in the util script
 var utils = require('./utils.js');
+var dynamicAssign = require('./dynamicAssign.js');
  
 function makeid()
 {
