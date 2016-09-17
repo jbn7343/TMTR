@@ -60,6 +60,8 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         //Gnerate a stateful store of the created CCID and (currently) keep a copy of the req 
         applicationMap[IDKey] = { "custGeneratedCCID": makeid(),
                                     "bizGeneratedCCID": makeid(),
+                                    "responseTemplate":"",
+                                    "nextResponseTemplate":"",
                                     "reqBody":req.body,
                                     "predefinedResponseFound":false,
                                     "error":false
@@ -86,6 +88,13 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         res.json({
             "error": applicationMap[IDKey].errorMessage
         });
+    }
+    
+    //We have sent the response so lets see if we need to assign a next response
+    if(applicationMap[IDKey].nextResponseTemplate!=="")
+    {
+        applicationMap[IDKey].responseTemplate = applicationMap[IDKey].nextResponseTemplate;
+        applicationMap[IDKey].nextResponseTemplate = "";
     }
     
    
