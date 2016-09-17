@@ -56,18 +56,31 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     applicationMap[IDKey] = { "custGeneratedCCID": makeid(),
                                 "bizGeneratedCCID": makeid(),
                                 "reqBody":req.body,
-                                "predefinedResponseFound":false
+                                "predefinedResponseFound":false,
+                                "error":false
     };
     
-    //Had the request off to the if block that determines if this is a known test case and needs a specific response
+    //Hand the request off to the if block that determines if this is a known test case and needs a specific response
     utils.determinePredefinedResponse(IDKey, req);
-
     
-   if(applicationMap[IDKey].predefinedResponseFound === false)
-   {
-       dynamicAssign.dynamicAssign(IDKey, req);
+    
+    if(applicationMap[IDKey].predefinedResponseFound === false)
+    {
+        //We didn't find a known test case so let's dynamically pick what the response should be
+        dynamicAssign.dynamicAssign(IDKey, req);
     }
-   res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
+    
+    if(applicationMap[IDKey].error===false)
+    {
+        res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
+    }
+    else
+    {
+        res.json({
+            "error": applicationMap[IDKey].errorMessage
+        });
+    }
+    
    
 });
 

@@ -20,9 +20,8 @@ exports.dynamicAssign = function (IDKey, req)
     } 
     else 
     {
-        res.json({
-            "error": "Customer Type not recognised"
-        });
+        applicationMap[IDKey].errorMessage = "Customer Type not recognised";
+        applicationMap[IDKey].error = true;
     }
     return "";
 }
