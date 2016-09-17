@@ -89,7 +89,7 @@ exports.dynamicAssign = function (IDKey, req)
                     }]
                 };
                 
-                customerBase.customers.customer.accounts.account.push({"test":"this out"});
+                customerBase.customers.customer.accounts.account.push({"test":"this out"})
                 
             }
             
