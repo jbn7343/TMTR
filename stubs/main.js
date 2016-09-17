@@ -6,6 +6,10 @@
 state.application = state.application || {};
 var applicationMap = state.application;
  
+ 
+//The predefined maps are in the util script
+var utils = require('./utils.js');
+ 
 function makeid()
 {
     var text = "";
@@ -21,6 +25,8 @@ function makeid()
 
     return text;
 }
+
+
 
 Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     // Check the request, make sure it is a compatible type
@@ -45,6 +51,8 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     
     applicationMap[IDKey] = { "generatedCCID": makeid(),
                                 "reqBody":req.body};
+    
+    utils.determinePredefinedResponse(IDKey);
     
     
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
@@ -81,6 +89,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
             //CUSTOMER MULTIPLE Neg
             res.render("customer_multiple_neg");
         } else {
+             
             var cust = {
                 "customers": {
                     "customer": [{
