@@ -2,6 +2,10 @@
  * My API Sandbox
  * 
  */
+ 
+state.application = state.application || {};
+var applicationMap = state.application;
+ 
 function makeid()
 {
     var text = "";
@@ -29,6 +33,18 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     
     // Set the status code of the response.
     res.status(200);
+    
+    var IDKey; 
+    if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
+        IDKey = req.body.customer.ssn
+    }
+    else
+    {
+        IDKey = req.body.customer.organization.taxId
+    }
+    
+    applicationMap[IDKey] = { "generatedCCID": makeid(),
+                                "reqBody":req.body};
     
     
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
