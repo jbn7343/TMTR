@@ -1313,7 +1313,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
             var pg = {
                 "customers": {
                     "customer": [{
-                        "customerType": "Personal Guarantor",
+                        "customerType": "Business",
                         "organization": {
                             "name": req.body.customer.organization.name,
                             "taxId": req.body.customer.organization.taxId
