@@ -101,8 +101,8 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
             res.render("customer_multiple_neg");
         } else {
              
-           // res.render("DYNAMIC_customer_new",applicationMap[IDKey] );
-            res.json({});
+           res.render("DYNAMIC_customer_new",applicationMap[IDKey] );
+            //res.json({});
         }
     } else if (req.body.customer.customerType.toUpperCase() == "BUSINESS") {
         if (req.body.customer.organization.taxId == "531598285") {
