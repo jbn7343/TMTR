@@ -6,7 +6,8 @@
             "familyName": "{{data.reqBody.customer.familyname}}",
             "dateOfBirth": "{{data.reqBody.customer.dateOfBirth}}",
             "phoneNumbers": [{
-                "phoneNumber": "{{data.reqBody.customer.phoneNumbers[0].phoneNumber}}"
+                "phoneNumber": "{{data.reqBody.customer.phoneNumbers[0].phoneNumber}}",
+                "phoneType": "{{data.reqBody.customer.phoneNumbers[0].phoneType.toUpperCase()}}"
             }],
             "commonCustomerId": "{{data.generatedCCID}}",
             "status": "N",
