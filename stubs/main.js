@@ -62,6 +62,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
                                     "bizGeneratedCCID": makeid(),
                                     "responseTemplate":"",
                                     "nextResponseTemplate":"",
+                                    "responseBody":"",
                                     "reqBody":req.body,
                                     "predefinedResponseFound":false,
                                     "error":false,
@@ -84,24 +85,32 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         }
     }
     
-    //We should now have a response so lets send it if there isnt an error
-    if(applicationMap[IDKey].error===false)
+    
+    if(applicationMap[IDKey].error===true)
     {
-        res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
-    }
-    else
-    {
+        //We hit an error so lets send it back
         res.json({
             "error": applicationMap[IDKey].errorMessage
         });
     }
-    
-    //We have sent the response so lets see if we need to assign a next response
-    if(applicationMap[IDKey].nextResponseTemplate!=="")
+    else if(applicationMap[IDKey].predefinedResponseFound === true)
     {
-        applicationMap[IDKey].responseTemplate = applicationMap[IDKey].nextResponseTemplate;
-        applicationMap[IDKey].nextResponseTemplate = "";
+        //We found a template we are going to use so let's send that
+        res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
+        //We have sent the response so lets see if we need to assign a next response
     }
+    else
+    {
+        res.json(applicationMap[IDKey].responseBody);
+    }
+    
+    //If we specified the next response for this customer should use a template lets bring that live and make sure template response flag is enables
+    if(applicationMap[IDKey].nextResponseTemplate!=="")
+        {
+            applicationMap[IDKey].predefinedResponseFound = true;
+            applicationMap[IDKey].responseTemplate = applicationMap[IDKey].nextResponseTemplate;
+            applicationMap[IDKey].nextResponseTemplate = "";
+        }
     
    
 });
