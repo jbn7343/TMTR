@@ -35,7 +35,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         if (req.body.customer.ssn == "110017363") {
             //Dewey September
             //CUSTOMER SINGLE CMF
-            res.json();
+            res.render("customer_single_cmf");
         } else if (req.body.customer.ssn == "342244596") {
             //Shota Rossi
             //CUSTOMER SINGLE FCMF
