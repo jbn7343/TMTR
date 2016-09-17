@@ -43,7 +43,7 @@ exports.dynamicAssign = function (IDKey, req)
         }
         else
         {
-            var customerBase = {
+            applicationMap[IDKey].responseBody = {
                     "customers": {
                         "customer": [{
                             "customerType": "individual",
@@ -89,7 +89,7 @@ exports.dynamicAssign = function (IDKey, req)
                     }]
                 };
                 
-                customerBase.customers.customer.accounts.account.push({"test":"this out"})
+                applicationMap[IDKey].responseBody.customers.customer.accounts.account.push({"test":"this out"})
                 
             }
             
