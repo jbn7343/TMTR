@@ -53,7 +53,9 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     
     //Gnerate a stateful store of the created CCID and (currently) keep a copy of the req 
     applicationMap[IDKey] = { "generatedCCID": makeid(),
-                                "reqBody":req.body};
+                                "reqBody":req.body,
+                                "predefinedResponseFound":false
+    };
     
     //Had the request off to the if block that determines if this is a known test case and needs a specific response
     utils.determinePredefinedResponse(IDKey, req);
