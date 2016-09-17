@@ -35,46 +35,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         if (req.body.customer.ssn == "110017363") {
             //Dewey September
             //CUSTOMER SINGLE CMF
-            res.json({
-                "customers": {
-                    "customer": [{
-                        "customerType": "Individual",
-                        "firstName": "DEWEY",
-                        "middleName": "K",
-                        "familyName": "SEPTEMBER",
-                        "dateOfBirth": "08/06/1965",
-                        "phoneNumbers": [{
-                            "phoneNumber": "6142095555",
-                            "phoneType": "HOME"
-                        }],
-                        "commonCustomerId": "1-E3K-100",
-                        "status": "Y",
-                        "marketCode": "COO",
-                        "accounts": {
-                            "account": [{
-                                "contactAddress": {
-                                    "addressLine1": "430 MAINSAIL DR",
-                                    "cityName": "WESTERVILLE",
-                                    "stateCode": "OH",
-                                    "zip": "43081"
-                                }
-                            }, {
-                                "accountNumber": "110017364",
-                                "status": "O",
-                                "statusChangeDate": "03/03/2004",
-                                "accountType": "I",
-                                "accountsubType": "R",
-                                "contactAddress": {},
-                                "notes": [{
-                                    "noteType": "CUSTOMERSTATUS",
-                                    "content": "CMF"
-                                }]
-                            }]
-                        },
-                        "ssn": "110017363"
-                    }]
-                }
-            });
+            res.json();
         } else if (req.body.customer.ssn == "342244596") {
             //Shota Rossi
             //CUSTOMER SINGLE FCMF
