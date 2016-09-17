@@ -1,0 +1,33 @@
+{
+    "customers": {
+        "customer": [{
+            "customerType": "Business",
+            "organization": {
+                "name": "{{data.reqBody.customer.organization.name}}",
+                "taxId": "{{data.reqBody.customer.organization.taxId}}"
+            },
+            "commonCustomerId": makeid(),
+            "status": "N",
+            "notes": [{
+                "noteType": "NEWCUSTOMER",
+                "content": "TRUE"
+            }]
+        }, {
+            "customerType": "Personal Guarantor",
+            "firstName": req.body.customer.firstName,
+            "familyName": req.body.customer.familyname,
+            "dateOfBirth": req.body.customer.dateOfBirth,
+            "phoneNumbers": [{
+                "phoneNumber": req.body.customer.phoneNumbers[0].phoneNumber,
+                "phoneType": req.body.customer.phoneNumbers[0].phoneType.toUpperCase()
+            }],
+            "commonCustomerId": makeid(),
+            "status": "N",
+            "notes": [{
+                "noteType": "NEWCUSTOMER",
+                "content": "TRUE"
+            }],
+            "ssn": req.body.customer.ssn
+        }]
+    }
+}

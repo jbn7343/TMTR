@@ -53,7 +53,8 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     }
     
     //Gnerate a stateful store of the created CCID and (currently) keep a copy of the req 
-    applicationMap[IDKey] = { "generatedCCID": makeid(),
+    applicationMap[IDKey] = { "custGeneratedCCID": makeid(),
+                                "bizGeneratedCCID": makeid(),
                                 "reqBody":req.body,
                                 "predefinedResponseFound":false
     };
