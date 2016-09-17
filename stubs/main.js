@@ -101,7 +101,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
             res.render("customer_multiple_neg");
         } else {
              
-           res.render("DYNAMIC_customer_new",{"reqBody":req,"generatedCCID":3} );
+           res.render("DYNAMIC_customer_new" );
             //res.json({});
         }
     } else if (req.body.customer.customerType.toUpperCase() == "BUSINESS") {
