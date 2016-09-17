@@ -40,6 +40,8 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     // Set the status code of the response.
     res.status(200);
     
+    
+    //Make a unique mapping value to store what the SSN/TID of the inboud request is
     var IDKey; 
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
         IDKey = req.body.customer.ssn;
@@ -49,11 +51,14 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         IDKey = req.body.customer.organization.taxId;
     }
     
+    //Gnerate a stateful store of the created CCID and (currently) keep a copy of the req 
     applicationMap[IDKey] = { "generatedCCID": makeid(),
                                 "reqBody":req.body};
     
-   utils.determinePredefinedResponse(IDKey, req);
-    
+    //Had the request off to the if block that determines if this is a known test case and needs a specific response
+    utils.determinePredefinedResponse(IDKey, req);
+   
+   
     
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
         if (req.body.customer.ssn == "110017363") {
