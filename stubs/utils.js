@@ -1,7 +1,7 @@
 state.application = state.application || {};
 var applicationMap = state.application;
 
-function determinePredefinedResponse(IDKey)
+exports.determinePredefinedResponse = function (IDKey)
 {
     
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
