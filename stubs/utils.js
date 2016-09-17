@@ -3,6 +3,11 @@ var applicationMap = state.application;
 
 exports.determinePredefinedResponse = function (IDKey, req)
 {
+    if(IDKey=="1234")
+    {
+        applicationMap[IDKey].responseTemplate = "Test";
+        applicationMap[IDKey].predefinedResponseFound = true;
+    }
     
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
         if (req.body.customer.ssn == "110017363") {
