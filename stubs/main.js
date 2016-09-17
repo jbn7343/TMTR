@@ -7,8 +7,7 @@ state.application = state.application || {};
 var applicationMap = state.application;
  
  
-//The predefined maps are in the util script
-var utils = require('./utils.js');
+
  
 function makeid()
 {
@@ -29,6 +28,9 @@ function makeid()
 
 
 Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
+   //The predefined maps are in the util script
+    var utils = require('./utils.js');
+   
     // Check the request, make sure it is a compatible type
     if (!req.is('application/json')) {
         return res.send(400, 'Invalid content type, expected application/json');
