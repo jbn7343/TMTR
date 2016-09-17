@@ -4,7 +4,7 @@ var applicationMap = state.application;
 exports.dynamicAssign = function (IDKey, req)
 {
     //Assign New Clean
-    if(Math.floor(Math.random() * 100) > 50)
+    if(Math.floor(Math.random() * 100) > 80)
     {
         applicationMap[IDKey].responseTypes.newClean = true;
     }
