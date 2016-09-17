@@ -103,7 +103,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
              
           // res.render("dyn_cust",{"reqTest":req.body,"generatedCCID":3} );
             //res.json({});
-            var cust = {
+           /* var cust = {
                 "customers": {
                     "customer": [{
                         "customerType": "individual",
@@ -136,7 +136,9 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
                 }
             }
     
-            res.json(cust);
+            res.json(cust);*/
+            
+            res.render("DYNAMIC_customer_new",applicationMap[IDKey]);
         }
     } else if (req.body.customer.customerType.toUpperCase() == "BUSINESS") {
         if (req.body.customer.organization.taxId == "531598285") {
