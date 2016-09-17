@@ -105,195 +105,19 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         if (req.body.customer.organization.taxId == "531598285") {
             //BENEDICTO
             //Business SINGLE CMF
-            res.json({
-                "customers": {
-                    "customer": [{
-                        "customerType": "Business",
-                        "organization": {
-                            "name": "BENEDICTO",
-                            "taxId": "531598285"
-                        },
-                        "commonCustomerId": "1-E3C-308",
-                        "status": "Y",
-                        "marketCode": "POO",
-                        "accounts": {
-                            "account": [{
-                                "contactAddress": {
-                                    "addressLine1": "7411 NE 129TH AVE",
-                                    "cityName": "VANCOUVER",
-                                    "stateCode": "WA",
-                                    "zip": "98682"
-                                }
-                            }, {
-                                "accountNumber": "942623494",
-                                "status": "O",
-                                "statusChangeDate": "01/01/2018",
-                                "accountType": "B",
-                                "accountsubType": "L",
-                                "contactAddress": {},
-                                "notes": [{
-                                    "noteType": "CUSTOMERSTATUS",
-                                    "content": "CMF"
-                                }]
-                            }]
-                        }
-                    }]
-                }
-            });
+            res.render("business_single_cmf");
         } else if (req.body.customer.organization.taxId == "732423580") {
             //One FCMF LLC
             //Business SINGLE FCMF
-            res.json({
-                "customers": {
-                    "customer": [{
-                        "customerType": "Business",
-                        "organization": {
-                            "name": "One FCMF LLC",
-                            "taxId": "732423580"
-                        },
-                        "commonCustomerId": "1-4X3JY",
-                        "status": "N",
-                        "creditProfile": {
-                            "classificationCode": "B"
-                        },
-                        "marketCode": "SEW",
-                        "accounts": {
-                            "account": [{
-                                "contactAddress": {
-                                    "addressLine1": "526 One FCMF Dr",
-                                    "cityName": "Bellevue",
-                                    "stateCode": "WA",
-                                    "zip": "98006"
-                                }
-                            }, {
-                                "accountNumber": "765234220",
-                                "status": "N",
-                                "statusChangeDate": "01/01/2016",
-                                "accountType": "B",
-                                "accountsubType": "L",
-                                "businessName": "One FCMF LLC",
-                                "contactAddress": {
-                                    "addressLine1": "526 One FCMF Dr",
-                                    "cityName": "Bellevue",
-                                    "stateCode": "WA",
-                                    "zip": "98006"
-                                },
-                                "contactCreditClass": "String",
-                                "serviceStartDate": "01/01/2001",
-                                "notes": [{
-                                    "noteType": "CUSTOMERSTATUS",
-                                    "content": "FCMF"
-                                }]
-                            }]
-                        }
-                    }]
-                }
-            });
+            res.render("business_single_fcmf");
         } else if (req.body.customer.organization.taxId == "720792454") {
             //PFEIFFER GANTT & GLEATON
             //Business SIMPLE OFAC
-            res.json({
-                "customers": {
-                    "customer": [{
-                        "customerType": "Business",
-                        "organization": {
-                            "name": "PFEIFFER GANTT & GLEATON",
-                            "taxId": "720792454"
-                        },
-                        "phoneNumbers": [{
-                            "phoneNumber": "8642509780",
-                            "phoneType": "BUSINESS"
-                        }],
-                        "commonCustomerId": "1-4216T",
-                        "status": "N",
-                        "jurisdictionActions": [{
-                            "sanctionFlag": true,
-                            "sanctionDate": "08/06/2018",
-                            "userName": "SADMINU2"
-                        }],
-                        "marketCode": "CHN",
-                        "accounts": {
-                            "account": [{
-                                "contactAddress": {
-                                    "addressLine1": "935 S MAIN ST STE 203",
-                                    "cityName": "GREENVILLE",
-                                    "stateCode": "SC",
-                                    "zip": "29601"
-                                }
-                            }]
-                        }
-                    }]
-                }
-            });
+            res.render("business_single_ofac");
         } else if (req.body.customer.organization.taxId == "310929576") {
             //ABG CAPITAL
             //Business Single Neg
-            res.json({
-                "customers": {
-                    "customer": [{
-                        "customerType": "Business",
-                        "organization": {
-                            "name": "ABG CAPITAL",
-                            "taxId": "310929576",
-                            "dunsnumber": ".."
-                        },
-                        "commonCustomerId": "1-4P7N6",
-                        "status": "N",
-                        "marketCode": "PIP",
-                        "accounts": {
-                            "account": [{
-                                "contactAddress": {
-                                    "addressLine1": "8 PENN CTR W STE 101",
-                                    "cityName": "PITTSBURGH",
-                                    "stateCode": "PA",
-                                    "zip": "15276"
-                                }
-                            }]
-                        },
-                        "negativeAccount": [{
-                            "accountNumber": "897152159",
-                            "status": "N",
-                            "statusChangeDate": "07/07/2014",
-                            "accountType": "B",
-                            "accountSubType": "C",
-                            "contactFamilyName": "ABG CAPITAL",
-                            "contactAddress": {
-                                "addressLine1": "8 PENN CTR W STE 101",
-                                "cityName": "PITTSBURGH",
-                                "stateCode": "PA",
-                                "zip": "15276"
-                            },
-                            "linesCount": 7,
-                            "availableBalance": 2073.01,
-                            "serviceStartDate": "07/06/2013",
-                            "billCycle": "2",
-                            "earlyTerminationFee": 0,
-                            "collectionAssignedDate": "09/11/2014",
-                            "phoneNumbers": [],
-                            "newAccountIndicator": true,
-                            "submarketCode": "NYN",
-                            "submarketName": "NEW YORK NY",
-                            "statusReasonCode": "FABR",
-                            "paymentLastAmount": 0,
-                            "taxId": "455108077",
-                            "writeOffDate": "10/04/2013",
-                            "creditClass": "0",
-                            "statusActivityCode": "CAN",
-                            "statusActivityReason": "FABR",
-                            "negativeFiles": [{
-                                "negativeFileId": "244443509",
-                                "marketCode": "VST",
-                                "agencyCode": "DCI",
-                                "assignedDate": "06/01/2015",
-                                "activityDate": "06/01/2015",
-                                "activityAmount": "2073.01",
-                                "activityType": "ASSN"
-                            }],
-                            "ssn": "310929576"
-                        }]
-                    }]
-                }
-            });
+            res.render("business_single_neg");
         } else if (req.body.customer.organization.taxId == "232423571") {
             //MULTIPLE CMF LLC
             //Business MULTIPLE CMF
