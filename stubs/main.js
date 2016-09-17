@@ -101,8 +101,42 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
             res.render("customer_multiple_neg");
         } else {
              
-           res.render("dyn_cust",{"reqTest":req.body,"generatedCCID":3} );
+          // res.render("dyn_cust",{"reqTest":req.body,"generatedCCID":3} );
             //res.json({});
+            var cust = {
+                "customers": {
+                    "customer": [{
+                        "customerType": "individual",
+                        "firstName": req.body.customer.firstName,
+                        "familyName": req.body.customer.familyname,
+                        "dateOfBirth": req.body.customer.dateOfBirth,
+                        "phoneNumbers": [{
+                            "phoneNumber": req.body.customer.phoneNumbers[0].phoneNumber,
+                            "phoneType": req.body.customer.phoneNumbers[0].phoneType.toUpperCase()
+                        }],
+                        "commonCustomerId": makeid(),
+                        "status": "N",
+                        "notes": [{
+                            "noteType": "NEWCUSTOMER",
+                            "content": "TRUE"
+                        }],
+                        "accounts": {
+                            "account": [{
+                                "contactAddress": {
+                                    "addressLine1": req.body.customer.addresses[0].addressLine1,
+                                    "addressLine2": req.body.customer.addresses[0].addressLine2,
+                                    "cityName": req.body.customer.addresses[0].cityName,
+                                    "stateCode": req.body.customer.addresses[0].stateCode,
+                                    "zip": req.body.customer.addresses[0].zip
+                                }
+                            }]
+                        },
+                        "ssn": req.body.customer.ssn
+                    }]
+                }
+            }
+    
+            res.json(cust);
         }
     } else if (req.body.customer.customerType.toUpperCase() == "BUSINESS") {
         if (req.body.customer.organization.taxId == "531598285") {
