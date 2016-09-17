@@ -60,8 +60,12 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     //Had the request off to the if block that determines if this is a known test case and needs a specific response
     utils.determinePredefinedResponse(IDKey, req);
    
-   
-    
+   if(applicationMap[IDKey].predefinedResponseFound === true)
+   {
+       res.render(applicationMap[IDKey].responseTemplate);
+   }    
+   else
+   {
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
         if (req.body.customer.ssn == "110017363") {
             //Dewey September
@@ -276,7 +280,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
                         "ssn": req.body.customer.ssn
                     }]
                 }
-            }
+            };
     
             res.json(pg);
         }
@@ -285,7 +289,8 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
             "error": "Customer Type not recognised"
         });
     }
-})
+   }
+});
 
 
 Sandbox.define('/core/v2/users/','GET', function(req, res){
