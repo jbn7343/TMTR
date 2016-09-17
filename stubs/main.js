@@ -52,7 +52,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     applicationMap[IDKey] = { "generatedCCID": makeid(),
                                 "reqBody":req.body};
     
-   //var test = utils.determinePredefinedResponse(IDKey);
+   utils.determinePredefinedResponse(IDKey);
     
     
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") {
