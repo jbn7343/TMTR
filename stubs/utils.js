@@ -117,5 +117,5 @@ function determinePredefinedResponse(IDKey)
              applicationMap[IDKey].requestedResponse = "PG_multiple_neg";
         } 
     }
-    
+    return "";
 }
