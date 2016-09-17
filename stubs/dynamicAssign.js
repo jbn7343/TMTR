@@ -110,7 +110,7 @@ exports.dynamicAssign = function (IDKey, req)
                     }]
                 };
                 
-                customerBase.customers.customer.accounts.account.push({"test":"this out fcmf"});
+                customerBase.customers.customer.accounts.account.push({"test":"this out fcmf"})
                 
             }
             
