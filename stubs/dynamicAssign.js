@@ -6,6 +6,7 @@ exports.dynamicAssign = function (IDKey, req)
     if (req.body.customer.customerType.toUpperCase() == "INDIVIDUAL") 
     {
         applicationMap[IDKey].responseTemplate = "DYNAMIC_customer_new";
+        applicationMap[IDKey].nextResponseTemplate = "DYNAMIC_customer_existing";
         applicationMap[IDKey].predefinedResponseFound = false;
     } 
     else if (req.body.customer.customerType.toUpperCase() == "BUSINESS") 
