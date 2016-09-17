@@ -24,4 +24,5 @@ exports.dynamicAssign = function (IDKey, req)
             "error": "Customer Type not recognised"
         });
     }
+    return "";
 }

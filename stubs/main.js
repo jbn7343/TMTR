@@ -60,6 +60,8 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     
     //Had the request off to the if block that determines if this is a known test case and needs a specific response
     utils.determinePredefinedResponse(IDKey, req);
+    
+    
    
    if(applicationMap[IDKey].predefinedResponseFound === true)
    {
@@ -67,7 +69,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
    }    
    else
    {
-       
+       res.render(applicationMap[IDKey].responseTemplate,applicationMap[IDKey]);
    }
    /*
    {
