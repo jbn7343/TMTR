@@ -64,7 +64,13 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
                                     "nextResponseTemplate":"",
                                     "reqBody":req.body,
                                     "predefinedResponseFound":false,
-                                    "error":false
+                                    "error":false,
+                                    "responseTypes":{
+                                        "cmf":false,
+                                        "fcmf":false,
+                                        "ofac":false,
+                                        "neg":false
+                                    }
         };
         
         //Hand the request off to the if block that determines if this is a known test case and needs a specific response
