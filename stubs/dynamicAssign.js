@@ -123,31 +123,31 @@ var neg = {"negativeAccount": [{
 exports.dynamicAssign = function (IDKey, req)
 {
     //Assign New Clean
-    if(Math.floor(Math.random() * 100) > 80)
+    if(Math.floor(Math.random() * 100) < 20)
     {
         applicationMap[IDKey].responseTypes.newClean = true;
     }
     
     //Assign RAND CMF
-    if(Math.floor(Math.random() * 100) > 20)
+    if(Math.floor(Math.random() * 100) < 20)
     {
         applicationMap[IDKey].responseTypes.cmf = true;
     }
     
     //Assign RAND FCMF
-    if(Math.floor(Math.random() * 100) > 20)
+    if(Math.floor(Math.random() * 100) < 20)
     {
         applicationMap[IDKey].responseTypes.fcmf = true;
     }
     
     //Assign RAND OFAC
-    if(Math.floor(Math.random() * 100) > 20)
+    if(Math.floor(Math.random() * 100) < 20)
     {
         applicationMap[IDKey].responseTypes.ofac = true;
     }
     
     //Assign RAND NEG
-    if(Math.floor(Math.random() * 100) > 20)
+    if(Math.floor(Math.random() * 100) < 20)
     {
         applicationMap[IDKey].responseTypes.neg = true;
     }
