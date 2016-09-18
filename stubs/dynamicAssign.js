@@ -1,6 +1,125 @@
 state.application = state.application || {};
 var applicationMap = state.application;
 
+ var cmf = {
+                    "accountNumber": "110017364",
+                    "status": "O",
+                    "statusChangeDate": "03/03/2004",
+                    "accountType": "I",
+                    "accountsubType": "R",
+                    "contactAddress": {},
+                    "notes": [{
+                        "noteType": "CUSTOMERSTATUS",
+                        "content": "CMF"
+                    }]
+                };
+                
+                
+var fcmf = {
+                    "accountNumber": "912345670",
+                    "status": "C",
+                    "statusChangeDate": "02/02/2012",
+                    "accountType": "I",
+                    "accountsubType": "R",
+                    "contactAddress": {},
+                    "serviceStartDate": "01/01/2012",
+                    "notes": [{
+                        "noteType": "CUSTOMERSTATUS",
+                        "content": "FCMF"
+                    }]
+                };
+                
+var OFAC = {"jurisdictionActions": [{
+                "sanctionFlag": true,
+                "sanctionDate": "09/09/2016",
+                "id": "18376",
+                "watchLists": [{
+                    "alertId": "SEN-205",
+                    "caseKey": "OWS-201609-091048-48E262-IND",
+                    "city": "Basel",
+                    "country": "CH",
+                    "familyName": "GONZALES MEJIA",
+                    "fullName": "CRISTIAN GONZALES MEJIA",
+                    "givenName": "CRISTIAN",
+                    "key": "OFAC",
+                    "subKey": "OFAC-SDN",
+                    "matchRule": "[I150O] Abbreviated given name and family name with typos only",
+                    "matchScore": "74",
+                    "nameType": "aka",
+                    "vendorId": "18376",
+                    "primaryName": "Cristian David GONZALEZ MEJIA",
+                    "recordOrigin": "OFAC-SDN",
+                    "recordType": "SAN",
+                    "riskScore": "76"
+                }, {
+                    "alertId": "SEN-207",
+                    "caseKey": "OWS-201609-091052-1A972A-IND",
+                    "city": "Basel",
+                    "country": "CH",
+                    "familyName": "GONZALEZ MEJIA",
+                    "fullName": "CRISTIAN DAVID GONZALEZ MEJIA",
+                    "givenName": "CRISTIAN DAVID",
+                    "key": "OFAC",
+                    "subKey": "OFAC-SDN",
+                    "matchRule": "[I010P] Exact name (conflict)",
+                    "matchScore": "75",
+                    "nameType": "Primary",
+                    "vendorId": "18376",
+                    "primaryName": "Cristian David GONZALEZ MEJIA",
+                    "recordOrigin": "OFAC-SDN",
+                    "recordType": "SAN",
+                    "riskScore": "76"
+                }],
+                "userName": "SADMINU2",
+                "overrideStatus": "No Over Ride",
+                "actionTaken": false,
+                "comments": [
+                    "FOR Review"
+                ]
+            }]};
+            
+var neg = {"negativeAccount": [{
+                            "accountNumber": "897152159",
+                            "status": "N",
+                            "statusChangeDate": "07/07/2014",
+                            "accountType": "B",
+                            "accountSubType": "C",
+                            "contactFamilyName": "ABG CAPITAL",
+                            "contactAddress": {
+                                "addressLine1": "8 PENN CTR W STE 101",
+                                "cityName": "PITTSBURGH",
+                                "stateCode": "PA",
+                                "zip": "15276"
+                            },
+                            "linesCount": 7,
+                            "availableBalance": 2073.01,
+                            "serviceStartDate": "07/06/2013",
+                            "billCycle": "2",
+                            "earlyTerminationFee": 0,
+                            "collectionAssignedDate": "09/11/2014",
+                            "phoneNumbers": [],
+                            "newAccountIndicator": true,
+                            "submarketCode": "NYN",
+                            "submarketName": "NEW YORK NY",
+                            "statusReasonCode": "FABR",
+                            "paymentLastAmount": 0,
+                            "taxId": "455108077",
+                            "writeOffDate": "10/04/2013",
+                            "creditClass": "0",
+                            "statusActivityCode": "CAN",
+                            "statusActivityReason": "FABR",
+                            "negativeFiles": [{
+                                "negativeFileId": "244443509",
+                                "marketCode": "VST",
+                                "agencyCode": "DCI",
+                                "assignedDate": "06/01/2015",
+                                "activityDate": "06/01/2015",
+                                "activityAmount": "2073.01",
+                                "activityType": "ASSN"
+                            }],
+                            "ssn": "310929576"
+                        }]}
+
 exports.dynamicAssign = function (IDKey, req)
 {
     //Assign New Clean
@@ -76,42 +195,26 @@ exports.dynamicAssign = function (IDKey, req)
             //IF WE HAVE CMF ADD THAT
             if(applicationMap[IDKey].responseTypes.cmf === true)
             {
-                var cmf = {
-                    "accountNumber": "110017364",
-                    "status": "O",
-                    "statusChangeDate": "03/03/2004",
-                    "accountType": "I",
-                    "accountsubType": "R",
-                    "contactAddress": {},
-                    "notes": [{
-                        "noteType": "CUSTOMERSTATUS",
-                        "content": "CMF"
-                    }]
-                };
-                
-                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push({"test":"this out"})
-                
+               
+                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push(cmf);
             }
             
             //IF WE HAVE FCMF ADD THAT
             if(applicationMap[IDKey].responseTypes.fcmf === true)
             {
-                var fcmf = {
-                    "accountNumber": "912345670",
-                    "status": "C",
-                    "statusChangeDate": "02/02/2012",
-                    "accountType": "I",
-                    "accountsubType": "R",
-                    "contactAddress": {},
-                    "serviceStartDate": "01/01/2012",
-                    "notes": [{
-                        "noteType": "CUSTOMERSTATUS",
-                        "content": "FCMF"
-                    }]
-                };
-                
-                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push({"test":"this out fcmf"})
-                
+                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push(fcmf);
+            }
+            
+            //IF WE HAVE OFAC ADD THAT
+            if(applicationMap[IDKey].responseTypes.ofac === true)
+            {
+                applicationMap[IDKey].responseBody.customers.customer[0].jurisdictionActions = OFAC.jurisdictionActions;
+            }
+            
+            //IF WE HAVE NEG ADD THAT
+            if(applicationMap[IDKey].responseTypes.neg === true)
+            {
+                applicationMap[IDKey].responseBody.customers.customer[0].negativeAccount = neg.negativeAccount;
             }
             
         }
