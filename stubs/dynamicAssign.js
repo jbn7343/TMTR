@@ -311,7 +311,7 @@ exports.dynamicAssign = function (IDKey, req)
     
     
     //THIS IS NOT A TEMPLATE RESPONSE SO LETS ADD ANY PIECES
-     if(applicationMap[IDKey].predefinedResponseFound === true)
+     if(applicationMap[IDKey].predefinedResponseFound === false)
      {
         //IF WE HAVE CMF ADD THAT
         if(applicationMap[IDKey].responseTypes.cmf === true)
