@@ -212,23 +212,23 @@ exports.dynamicAssign = function (IDKey, req)
                                 "customer": [{
                                     "customerType": "Business",
                                     "organization": {
-                                        "name": data.reqBody.customer.organization.name,
-                                        "taxId": data.reqBody.customer.organization.taxId
+                                        "name": applicationMap[IDKey].reqBody.customer.organization.name,
+                                        "taxId": applicationMap[IDKey].reqBody.customer.organization.taxId
                                     },
                                     "phoneNumbers": [{
-                                        "phoneNumber": data.reqBody.customer.phoneNumbers[0].phoneNumber,
-                                        "phoneType": data.reqBody.customer.phoneNumbers[0].phoneType
+                                        "phoneNumber": applicationMap[IDKey].reqBody.customer.phoneNumbers[0].phoneNumber,
+                                        "phoneType": applicationMap[IDKey].reqBody.customer.phoneNumbers[0].phoneType
                                     }],
-                                    "commonCustomerId": data.reqBody.bizGeneratedCCID,
+                                    "commonCustomerId": applicationMap[IDKey].bizGeneratedCCID,
                                     "status": "N",
                                     "accounts": {
                                         "account": [{
                                             "contactAddress": {
-                                                "addressLine1": data.reqBody.customer.addresses[0].addressLine1,
-                                                "addressLine2": data.reqBody.customer.addresses[0].addressLine2,
-                                                "cityName": data.reqBody.customer.addresses[0].cityName,
-                                                "stateCode": data.reqBody.customer.addresses[0].stateCode,
-                                                "zip": data.reqBody.customer.addresses[0].zip
+                                                "addressLine1": applicationMap[IDKey].reqBody.customer.addresses[0].addressLine1,
+                                                "addressLine2": applicationMap[IDKey].reqBody.customer.addresses[0].addressLine2,
+                                                "cityName": applicationMap[IDKey].reqBody.customer.addresses[0].cityName,
+                                                "stateCode": applicationMap[IDKey].reqBody.customer.addresses[0].stateCode,
+                                                "zip": applicationMap[IDKey].reqBody.customer.addresses[0].zip
                                             }
                                         }]
                                     }
@@ -255,45 +255,45 @@ exports.dynamicAssign = function (IDKey, req)
                                 "customer": [{
                                     "customerType": "Business",
                                     "organization": {
-                                        "name": data.reqBody.customer.organization.name,
-                                        "taxId": data.reqBody.customer.organization.taxId
+                                        "name": applicationMap[IDKey].reqBody.customer.organization.name,
+                                        "taxId": applicationMap[IDKey].reqBody.customer.organization.taxId
                                     },
-                                    "commonCustomerId": data.reqBody.bizGeneratedCCID,
+                                    "commonCustomerId": applicationMap[IDKey].bizGeneratedCCID,
                                     "status": "N",
                                     "accounts": {
                                         "account": [{
                                             "contactAddress": {
-                                                "addressLine1": data.reqBody.customer.addresses[0].addressLine1,
-                                                "addressLine2": data.reqBody.customer.addresses[0].addressLine2,
-                                                "cityName": data.reqBody.customer.addresses[0].cityName,
-                                                "stateCode": data.reqBody.customer.addresses[0].stateCode,
-                                                "zip": data.reqBody.customer.addresses[0].zip
+                                                "addressLine1": applicationMap[IDKey].reqBody.customer.addresses[0].addressLine1,
+                                                "addressLine2": applicationMap[IDKey].reqBody.customer.addresses[0].addressLine2,
+                                                "cityName": applicationMap[IDKey].reqBody.customer.addresses[0].cityName,
+                                                "stateCode": applicationMap[IDKey].reqBody.customer.addresses[0].stateCode,
+                                                "zip": applicationMap[IDKey].reqBody.customer.addresses[0].zip
                                             }
                                         }]
                                     }
                                 }, {
                                     "customerType": "Personal Guarantor",
-                                    "firstName": data.reqBody.customer.firstName,
-                                    "familyName": data.reqBody.customer.familyname,
-                                    "dateOfBirth": data.reqBody.customer.dateOfBirth,
+                                    "firstName": applicationMap[IDKey].reqBody.customer.firstName,
+                                    "familyName": applicationMap[IDKey].reqBody.customer.familyname,
+                                    "dateOfBirth": applicationMap[IDKey].reqBody.customer.dateOfBirth,
                                     "phoneNumbers": [{
-                                        "phoneNumber": data.reqBody.customer.phoneNumbers[0].phoneNumber,
-                                        "phoneType": data.reqBody.customer.phoneNumbers[0].phoneType
+                                        "phoneNumber": applicationMap[IDKey].reqBody.customer.phoneNumbers[0].phoneNumber,
+                                        "phoneType": applicationMap[IDKey].reqBody.customer.phoneNumbers[0].phoneType
                                     }],
-                                    "commonCustomerId": data.custGeneratedCCID,
+                                    "commonCustomerId": applicationMap[IDKey].custGeneratedCCID,
                                     "status": "N",
                                     "accounts": {
                                         "account": [{
                                             "contactAddress": {
-                                                "addressLine1": data.reqBody.customer.addresses[1].addressLine1,
-                                                "addressLine2": data.reqBody.customer.addresses[1].addressLine2,
-                                                "cityName": data.reqBody.customer.addresses[1].cityName,
-                                                "stateCode": data.reqBody.customer.addresses[1].stateCode,
-                                                "zip": data.reqBody.customer.addresses[1].zip
+                                                "addressLine1": applicationMap[IDKey].reqBody.customer.addresses[1].addressLine1,
+                                                "addressLine2": applicationMap[IDKey].reqBody.customer.addresses[1].addressLine2,
+                                                "cityName": applicationMap[IDKey].reqBody.customer.addresses[1].cityName,
+                                                "stateCode": applicationMap[IDKey].reqBody.customer.addresses[1].stateCode,
+                                                "zip": applicationMap[IDKey].reqBody.customer.addresses[1].zip
                                             }
                                         }]
                                     },
-                                    "ssn": data.reqBody.customer.ssn
+                                    "ssn": applicationMap[IDKey].reqBody.customer.ssn
                                 }]
                             }
                         }
