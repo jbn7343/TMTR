@@ -89,7 +89,7 @@ exports.dynamicAssign = function (IDKey, req)
                     }]
                 };
                 
-                applicationMap[IDKey].responseBody.customers.customer.accounts.account.push({"test":"this out"})
+                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push({"test":"this out"})
                 
             }
             
@@ -110,7 +110,7 @@ exports.dynamicAssign = function (IDKey, req)
                     }]
                 };
                 
-              //  customerBase.customers.customer.accounts.account.push({"test":"this out fcmf"})
+                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push({"test":"this out fcmf"})
                 
             }
             
