@@ -335,7 +335,7 @@ exports.dynamicAssign = function (IDKey, req)
         //IF WE HAVE NEG ADD THAT
         if(applicationMap[IDKey].responseTypes.neg === true)
         {
-           bodyObject.responseBody.customers.customer[0].negativeAccount = neg.negativeAccount;
+           bodyObject.customers.customer[0].negativeAccount = neg.negativeAccount;
         }
         
         
