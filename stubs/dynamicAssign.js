@@ -122,6 +122,10 @@ var neg = {"negativeAccount": [{
 
 exports.dynamicAssign = function (IDKey, req)
 {
+    /////////////////////////////////////////
+    //Create the holding variable for the body
+    var bodyObject;
+    
     //Assign New Clean
     if(Math.floor(Math.random() * 100) < 20)
     {
@@ -162,7 +166,7 @@ exports.dynamicAssign = function (IDKey, req)
         }
         else
         {
-            applicationMap[IDKey].responseBody = {
+            bodyObject = {
                     "customers": {
                         "customer": [{
                             "customerType": "individual",
@@ -190,52 +194,160 @@ exports.dynamicAssign = function (IDKey, req)
                         }]
                     }
                 };
-                
-            
-            //IF WE HAVE CMF ADD THAT
-            if(applicationMap[IDKey].responseTypes.cmf === true)
-            {
-               
-                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push(cmf);
-            }
-            
-            //IF WE HAVE FCMF ADD THAT
-            if(applicationMap[IDKey].responseTypes.fcmf === true)
-            {
-                applicationMap[IDKey].responseBody.customers.customer[0].accounts.account.push(fcmf);
-            }
-            
-            //IF WE HAVE OFAC ADD THAT
-            if(applicationMap[IDKey].responseTypes.ofac === true)
-            {
-                applicationMap[IDKey].responseBody.customers.customer[0].jurisdictionActions = OFAC.jurisdictionActions;
-            }
-            
-            //IF WE HAVE NEG ADD THAT
-            if(applicationMap[IDKey].responseTypes.neg === true)
-            {
-                applicationMap[IDKey].responseBody.customers.customer[0].negativeAccount = neg.negativeAccount;
-            }
-            
         }
         
     } 
     else if (req.body.customer.customerType.toUpperCase() == "BUSINESS") 
     {
-        applicationMap[IDKey].responseTemplate = "DYNAMIC_business_new";
-        //applicationMap[IDKey].nextResponseTemplate = "DYNAMIC_business_existing";
-        applicationMap[IDKey].predefinedResponseFound = true;
+        if(applicationMap[IDKey].responseTypes.newClean === true)
+        {
+            applicationMap[IDKey].responseTemplate = "DYNAMIC_business_new";
+            //applicationMap[IDKey].nextResponseTemplate = "DYNAMIC_business_existing";
+            applicationMap[IDKey].predefinedResponseFound = true;
+        }
+        else
+        {
+            bodyObject = {
+                            "customers": {
+                                "customer": [{
+                                    "customerType": "Business",
+                                    "organization": {
+                                        "name": data.reqBody.customer.organization.name,
+                                        "taxId": data.reqBody.customer.organization.taxId
+                                    },
+                                    "phoneNumbers": [{
+                                        "phoneNumber": data.reqBody.customer.phoneNumbers[0].phoneNumber,
+                                        "phoneType": data.reqBody.customer.phoneNumbers[0].phoneType
+                                    }],
+                                    "commonCustomerId": data.reqBody.bizGeneratedCCID,
+                                    "status": "N",
+                                    "accounts": {
+                                        "account": [{
+                                            "contactAddress": {
+                                                "addressLine1": data.reqBody.customer.addresses[0].addressLine1,
+                                                "addressLine2": data.reqBody.customer.addresses[0].addressLine2,
+                                                "cityName": data.reqBody.customer.addresses[0].cityName,
+                                                "stateCode": data.reqBody.customer.addresses[0].stateCode,
+                                                "zip": data.reqBody.customer.addresses[0].zip
+                                            }
+                                        }]
+                                    }
+                                }]
+                            }
+                        }
+            
+            
+        }
     } 
     else if (req.body.customer.customerType.toUpperCase() == "PERSONAL GUARANTOR") 
     {
-        applicationMap[IDKey].responseTemplate = "DYNAMIC_PG_new";
-        //applicationMap[IDKey].nextResponseTemplate = "DYNAMIC_PG_existing";
-        applicationMap[IDKey].predefinedResponseFound = true;
+        if(applicationMap[IDKey].responseTypes.newClean === true)
+        {
+            applicationMap[IDKey].responseTemplate = "DYNAMIC_PG_new";
+            //applicationMap[IDKey].nextResponseTemplate = "DYNAMIC_PG_existing";
+            applicationMap[IDKey].predefinedResponseFound = true;
+        }
+        else
+        {
+            
+            bodyObject = {
+                            "customers": {
+                                "customer": [{
+                                    "customerType": "Business",
+                                    "organization": {
+                                        "name": data.reqBody.customer.organization.name,
+                                        "taxId": data.reqBody.customer.organization.taxId
+                                    },
+                                    "commonCustomerId": data.reqBody.bizGeneratedCCID,
+                                    "status": "N",
+                                    "accounts": {
+                                        "account": [{
+                                            "contactAddress": {
+                                                "addressLine1": data.reqBody.customer.addresses[0].addressLine1,
+                                                "addressLine2": data.reqBody.customer.addresses[0].addressLine2,
+                                                "cityName": data.reqBody.customer.addresses[0].cityName,
+                                                "stateCode": data.reqBody.customer.addresses[0].stateCode,
+                                                "zip": data.reqBody.customer.addresses[0].zip
+                                            }
+                                        }]
+                                    }
+                                }, {
+                                    "customerType": "Personal Guarantor",
+                                    "firstName": data.reqBody.customer.firstName,
+                                    "familyName": data.reqBody.customer.familyname,
+                                    "dateOfBirth": data.reqBody.customer.dateOfBirth,
+                                    "phoneNumbers": [{
+                                        "phoneNumber": data.reqBody.customer.phoneNumbers[0].phoneNumber,
+                                        "phoneType": data.reqBody.customer.phoneNumbers[0].phoneType
+                                    }],
+                                    "commonCustomerId": data.custGeneratedCCID,
+                                    "status": "N",
+                                    "accounts": {
+                                        "account": [{
+                                            "contactAddress": {
+                                                "addressLine1": data.reqBody.customer.addresses[1].addressLine1,
+                                                "addressLine2": data.reqBody.customer.addresses[1].addressLine2,
+                                                "cityName": data.reqBody.customer.addresses[1].cityName,
+                                                "stateCode": data.reqBody.customer.addresses[1].stateCode,
+                                                "zip": data.reqBody.customer.addresses[1].zip
+                                            }
+                                        }]
+                                    },
+                                    "ssn": data.reqBody.customer.ssn
+                                }]
+                            }
+                        }
+            
+        }
     } 
     else 
     {
         applicationMap[IDKey].errorMessage = "Customer Type not recognised";
         applicationMap[IDKey].error = true;
     }
+    
+    
+    
+    
+    
+    //THIS IS NOT A TEMPLATE RESPONSE SO LETS ADD ANY PIECES
+     if(applicationMap[IDKey].predefinedResponseFound === true)
+     {
+        //IF WE HAVE CMF ADD THAT
+        if(applicationMap[IDKey].responseTypes.cmf === true)
+        {
+           
+            bodyObject.customers.customer[0].accounts.account.push(cmf);
+        }
+        
+        //IF WE HAVE FCMF ADD THAT
+        if(applicationMap[IDKey].responseTypes.fcmf === true)
+        {
+            bodyObject.customers.customer[0].accounts.account.push(fcmf);
+        }
+        
+        //IF WE HAVE OFAC ADD THAT
+        if(applicationMap[IDKey].responseTypes.ofac === true)
+        {
+            bodyObject.customers.customer[0].jurisdictionActions = OFAC.jurisdictionActions;
+        }
+        
+        //IF WE HAVE NEG ADD THAT
+        if(applicationMap[IDKey].responseTypes.neg === true)
+        {
+           bodyObject.responseBody.customers.customer[0].negativeAccount = neg.negativeAccount;
+        }
+        
+        
+        //ADDING THE PIECES IS DONE SO APPEND TO THE STORAGE OBJECT
+        applicationMap[IDKey].responseBody = bodyObject;
+     }
+    
+    
+    
+    
+    
+    
+    
     return "";
 }
