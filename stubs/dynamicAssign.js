@@ -171,7 +171,7 @@ exports.dynamicAssign = function (IDKey, req)
                         "customer": [{
                             "customerType": "individual",
                             "firstName": applicationMap[IDKey].reqBody.customer.firstName,
-                            "familyName": applicationMap[IDKey].reqBody.customer.familyname,
+                            "familyName": applicationMap[IDKey].reqBody.customer.familyName,
                             "dateOfBirth": applicationMap[IDKey].reqBody.customer.dateOfBirth,
                             "phoneNumbers": [{
                                 "phoneNumber": applicationMap[IDKey].reqBody.customer.phoneNumbers[0].phoneNumber,
@@ -274,7 +274,7 @@ exports.dynamicAssign = function (IDKey, req)
                                 }, {
                                     "customerType": "Personal Guarantor",
                                     "firstName": applicationMap[IDKey].reqBody.customer.firstName,
-                                    "familyName": applicationMap[IDKey].reqBody.customer.familyname,
+                                    "familyName": applicationMap[IDKey].reqBody.customer.familyName,
                                     "dateOfBirth": applicationMap[IDKey].reqBody.customer.dateOfBirth,
                                     "phoneNumbers": [{
                                         "phoneNumber": applicationMap[IDKey].reqBody.customer.phoneNumbers[0].phoneNumber,
