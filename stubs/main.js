@@ -17,7 +17,7 @@ function makeid()
     var possible = "0123456789";
 
     text = possible.charAt(Math.floor(Math.random() * possible.length));
-    text += "-"
+    text += "-";
 
     possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -53,7 +53,7 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
     }
     
     //see if we already have an entry
-    var application = applicationMap[IDKey]
+    var application = applicationMap[IDKey];
     
     //if we don't have an existing application make the determination with what to respond
     if (!application) { 
@@ -205,21 +205,21 @@ Sandbox.define('/core/v2/users/','GET', function(req, res){
         });
     }
     // Send the response body.
-})
+});
 
 
 Sandbox.define('/core/v2/customers', 'POST', function(req, res){
     // The URL has to have a / at the end because reasons
         res.type('application/json');
         return res.send(301, '{"Error":"Change your Customers URL to have a / at the end."}');
-})
+});
 
 
 Sandbox.define('/core/v2/users', 'GET', function(req, res){
     // The URL has to have a / at the end because reasons
         res.type('application/json');
         return res.send(301, '{"Error":"Change your Users URL to have a / at the end."}');
-})
+});
 
 
 Sandbox.define('/core/v2/customers/{customerid}/creditprofile', 'PUT', function(req, res){
@@ -234,7 +234,7 @@ Sandbox.define('/core/v2/customers/{customerid}/creditprofile', 'PUT', function(
     // Set the status code of the response.
     
     
-    var CID = req.params.customerid
+    var CID = req.params.customerid;
     
     
     if(CID=="1234")
