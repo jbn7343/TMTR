@@ -199,6 +199,25 @@ Sandbox.define('/core/v2/users/','GET', function(req, res){
                 }]
             }
         });
+    } else if (req.query.userid == "1767933" || req.query.dealercode == "1767933") {
+        res.json({
+      "users": {
+        "user": [
+          {
+            "dealerCode": "1767933",
+            "dealerName": "Merida Reyes-castro",
+            "creditChannelCodes": [
+              "410"
+            ],
+            "contractTypes": [
+              "DIRECT"
+            ],
+            "dealerStatus": "Active"
+          }
+        ]
+      }
+    });
+        
     } else {
         res.json({
             "error": "Test dealercode not found, use 4315536"
