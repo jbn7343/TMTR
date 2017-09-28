@@ -199,6 +199,41 @@ Sandbox.define('/core/v2/users/','GET', function(req, res){
                 }]
             }
         });
+    } else if (req.query.userid == "1000002" || req.query.dealercode == "1000002") {
+        res.json({
+            "users": {
+                "user": [{
+                    "dealerCode": "1000002",
+                    "masterDealerCode": "1000002",
+                    "dealerName": "QA Test Dealer",
+                    "dealerGroupNames": [
+                        "OES_RPS_BASIC"
+                    ],
+                    "brand": "UVM",
+                    "rsaTokenCount": 3,
+                    "creditChannelCodes": [
+                        "260"
+                    ],
+                    "stores": {
+                        "store": [{
+                            "businessPhones": [{
+                                "phoneType": "BUSINESS",
+                                "phoneNumber": "Required Field"
+                            }]
+                        }]
+                    },
+                    "provisionedDate": "2016-05-24",
+                    "enabledForTAM": "N",
+                    "manager": {
+                        "userId": "XELSYSADM"
+                    },
+                    "brightPointDealerId": "0560575",
+                    "dealerStatus": "A",
+                    "firstName": "Required Field",
+                    "userId": "MIDTOSYNY16"
+                }]
+            }
+        });
     } else if (req.query.userid == "1767933" || req.query.dealercode == "1767933") {
         res.json({
       "users": {
