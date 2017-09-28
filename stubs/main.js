@@ -205,7 +205,7 @@ Sandbox.define('/core/v2/users/','GET', function(req, res){
                 "user": [{
                     "dealerCode": "1000002",
                     "masterDealerCode": "1000002",
-                    "dealerName": "QA Test Dealer",
+                    "dealerName": "QA Test WFM",
                     "dealerGroupNames": [
                         "OES_RPS_BASIC"
                     ],
