@@ -79,11 +79,11 @@ Sandbox.define('/core/v2/customers/', 'POST', function(req, res){
         utils.determinePredefinedResponse(IDKey, req);
         
         
-        if(applicationMap[IDKey].predefinedResponseFound === false)
-        {
-            //We didn't find a known test case so let's dynamically pick what the response should be
-            dynamicAssign.dynamicAssign(IDKey, req);
-        }
+        // if(applicationMap[IDKey].predefinedResponseFound === false)
+        // {
+        //     //We didn't find a known test case so let's dynamically pick what the response should be
+        //     dynamicAssign.dynamicAssign(IDKey, req);
+        // }
     }
     
     
