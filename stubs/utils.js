@@ -50,6 +50,11 @@ exports.determinePredefinedResponse = function (IDKey, req)
             //CUSTOMER MULTIPLE Neg
              applicationMap[IDKey].responseTemplate = "customer_multiple_neg";
              applicationMap[IDKey].predefinedResponseFound = true;
+        } else if (req.body.customer.ssn == "666157435") {
+            //Mario Solis
+            //CUSTOMER THIRD PARTY FRAUD
+             applicationMap[IDKey].responseTemplate = "customer_tpf";
+             applicationMap[IDKey].predefinedResponseFound = true;
         } 
     
         
