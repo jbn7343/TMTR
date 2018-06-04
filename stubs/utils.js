@@ -51,7 +51,7 @@ exports.determinePredefinedResponse = function (IDKey, req)
              applicationMap[IDKey].responseTemplate = "customer_multiple_neg";
              applicationMap[IDKey].predefinedResponseFound = true;
         } else if (req.body.customer.ssn == "666157435") {
-            //Mario Solis
+            //Wayne Wyatt
             //CUSTOMER THIRD PARTY FRAUD
              applicationMap[IDKey].responseTemplate = "customer_tpf";
              applicationMap[IDKey].predefinedResponseFound = true;
@@ -98,6 +98,12 @@ exports.determinePredefinedResponse = function (IDKey, req)
             //BILLMAN HOME CENTER
             //Business MULTIPLE Neg
              applicationMap[IDKey].responseTemplate = "business_multiple_neg";
+             applicationMap[IDKey].predefinedResponseFound = true;
+        } 
+        else if (req.body.customer.organization.taxId == "445601765") {
+            //Richmond Ranges
+            //Business Third Party Fraud
+             applicationMap[IDKey].responseTemplate = "business_tpf";
              applicationMap[IDKey].predefinedResponseFound = true;
         } 
     } else if (req.body.customer.customerType.toUpperCase() == "PERSONAL GUARANTOR") {
