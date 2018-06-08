@@ -253,6 +253,75 @@ Sandbox.define('/core/v2/users/','GET', function(req, res){
       }
     });
         
+    }else if (req.query.userid == "1403536" || req.query.dealercode == "1403536") {
+        res.json({
+            "users": {
+                "user": [{
+                    "dealerCode": "1610027",
+                    "masterDealerCode": "1610027",
+                    "dealerName": "Scooby Doo",
+                    "dealerGroupNames": [
+                        "OES_RPS_BASIC"
+                    ],
+                    "brand": "UVM",
+                    "rsaTokenCount": 3,
+                    "creditChannelCodes": [
+                        "410"
+                    ],
+                    "stores": {
+                        "store": [{
+                            "businessPhones": [{
+                                "phoneType": "BUSINESS",
+                                "phoneNumber": "Required Field"
+                            }]
+                        }]
+                    },
+                    "provisionedDate": "2014-04-24",
+                    "enabledForTAM": "N",
+                    "manager": {
+                        "userId": "XELSYSADM"
+                    },
+                    "brightPointDealerId": "0560575",
+                    "dealerStatus": "A",
+                    "firstName": "Required Field",
+                    "userId": "MIDTOSYNY16"
+                }]
+            }
+        });
+    } else if (req.query.userid == "0000002" || req.query.dealercode == "0000002") {
+        res.json({
+            "users": {
+                "user": [{
+                    "dealerCode": "0039171",
+                    "dealerName": "SGT Pepper",
+                    "creditChannelCodes": [
+                        "120"
+                    ],
+                    "contractTypes": [
+                        "TPR"
+                    ],
+                    "dealerStatus": "A"
+                }]
+            }
+        });
+    
+    } else if (req.query.userid == "1234567" || req.query.dealercode == "1234567") {
+        res.json({
+            "users": {
+                "user": [{
+                    "dealerCode": "0039171",
+                    "dealerName": "Donald Duck",
+                    "creditChannelCodes": [
+                        "410"
+                    ],
+                    "contractTypes": [
+                        "Organic Retail"
+                    ],
+                    "dealerStatus": "A"
+                }]
+            }
+        });
+    
     } else {
         res.json({
             "error": "Test dealercode not found, use 4315536"
